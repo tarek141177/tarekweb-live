@@ -1,5 +1,5 @@
 
-import { Code, Smartphone, Search, BarChart, Palette, Shield } from 'lucide-react';
+import { Code, Search, BarChart, Shield, BookOpen, FileText } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const Services = () => {
@@ -9,12 +9,6 @@ export const Services = () => {
       title: "تصميم مواقع إلكترونية",
       description: "تصميم مواقع احترافية ومتجاوبة باستخدام أحدث التقنيات",
       features: ["تصميم متجاوب", "سرعة عالية", "تحسين SEO", "لوحة تحكم سهلة"]
-    },
-    {
-      icon: Smartphone,
-      title: "تطبيقات الجوال",
-      description: "تطوير تطبيقات جوال احترافية للأندرويد و iOS",
-      features: ["تطبيقات أصلية", "تجربة مستخدم مميزة", "أداء عالي", "دعم متعدد المنصات"]
     },
     {
       icon: Search,
@@ -29,16 +23,28 @@ export const Services = () => {
       features: ["إدارة المحتوى", "إعلانات مدفوعة", "تحليل البيانات", "استراتيجية التسويق"]
     },
     {
-      icon: Palette,
-      title: "التصميم الجرافيكي",
-      description: "تصميم هوية بصرية مميزة لعلامتك التجارية",
-      features: ["تصميم الشعار", "الهوية البصرية", "المطبوعات", "تصميم الإعلانات"]
-    },
-    {
       icon: Shield,
       title: "الأمان والحماية",
       description: "حماية موقعك من الهجمات الإلكترونية",
       features: ["شهادات SSL", "نسخ احتياطية", "مراقبة الأمان", "حماية من الفيروسات"]
+    },
+    {
+      icon: BookOpen,
+      title: "مدونة احترافية جاهزة",
+      description: "مدونة مُحسنة لمحركات البحث مع محتوى هدية",
+      features: ["مدونة جاهزة للنشر", "3 مقالات هدية في نيشك", "فيديو شرح الإعداد", "تحسين SEO للمقالات"]
+    },
+    {
+      icon: Code,
+      title: "إدارة المواقع الإلكترونية",
+      description: "خدمة إدارة شاملة لموقعك الإلكتروني",
+      features: ["تحديث المحتوى", "صيانة دورية", "نسخ احتياطية", "تقارير أداء شهرية"]
+    },
+    {
+      icon: FileText,
+      title: "صناعة المحتوى",
+      description: "إنتاج محتوى عالي الجودة لموقعك ومنصاتك",
+      features: ["كتابة مقالات SEO", "محتوى السوشيال ميديا", "النشرات الإخبارية", "استراتيجية المحتوى"]
     }
   ];
 
