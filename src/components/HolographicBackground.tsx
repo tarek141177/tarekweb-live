@@ -29,23 +29,24 @@ export const HolographicBackground = () => {
       opacity: number;
     }> = [];
 
-    const colors = ['#00f5ff', '#ff00ff', '#00ff88', '#8b5cf6'];
+    // تخفيف الألوان لتكون أكثر هدوءاً
+    const colors = ['#0088cc', '#cc0088', '#00cc66', '#6644cc'];
 
-    // Create particles
-    for (let i = 0; i < 100; i++) {
+    // تقليل عدد الجسيمات من 100 إلى 60
+    for (let i = 0; i < 60; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 3 + 1,
+        vx: (Math.random() - 0.5) * 0.3, // تقليل السرعة أيضاً
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 2 + 0.5, // تقليل حجم الجسيمات
         color: colors[Math.floor(Math.random() * colors.length)],
-        opacity: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.3 + 0.1, // تقليل الشفافية من 0.2-0.7 إلى 0.1-0.4
       });
     }
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)'; // زيادة التلاشي للتهدئة
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, index) => {
@@ -64,20 +65,20 @@ export const HolographicBackground = () => {
         ctx.globalAlpha = particle.opacity;
         ctx.fill();
 
-        // Draw connections
+        // Draw connections with reduced intensity
         particles.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex) {
             const dx = particle.x - otherParticle.x;
             const dy = particle.y - otherParticle.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 100) {
+            if (distance < 80) { // تقليل مسافة الاتصال
               ctx.beginPath();
               ctx.moveTo(particle.x, particle.y);
               ctx.lineTo(otherParticle.x, otherParticle.y);
               ctx.strokeStyle = particle.color;
-              ctx.globalAlpha = (1 - distance / 100) * 0.3;
-              ctx.lineWidth = 0.5;
+              ctx.globalAlpha = (1 - distance / 80) * 0.1; // تقليل قوة الخطوط من 0.3 إلى 0.1
+              ctx.lineWidth = 0.3; // تقليل سمك الخطوط
               ctx.stroke();
             }
           }

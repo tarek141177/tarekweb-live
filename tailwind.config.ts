@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -116,6 +115,10 @@ export default {
 					'50%': { transform: 'rotateX(0deg) rotateY(90deg)' },
 					'75%': { transform: 'rotateX(-45deg) rotateY(135deg)' },
 					'100%': { transform: 'rotateX(0deg) rotateY(180deg)' }
+				},
+				'slow-spin': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -124,7 +127,8 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'glow': 'glow 2s ease-in-out infinite alternate',
 				'holographic': 'holographic 3s ease infinite',
-				'rotate3d': 'rotate3d 10s linear infinite'
+				'rotate3d': 'rotate3d 10s linear infinite',
+				'slow-spin': 'slow-spin 4s linear infinite'
 			},
 			backgroundImage: {
 				'holographic-gradient': 'linear-gradient(45deg, #00f5ff, #ff00ff, #00ff88, #8b5cf6)',
