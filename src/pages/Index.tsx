@@ -8,6 +8,7 @@ import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { HolographicBackground } from '@/components/HolographicBackground';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +46,7 @@ const Index = () => {
       <About />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

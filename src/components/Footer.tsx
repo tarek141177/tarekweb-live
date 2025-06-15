@@ -1,5 +1,5 @@
 
-import { Globe, Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Globe, Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,17 +15,37 @@ export const Footer = () => {
               شركة متخصصة في تصميم المواقع الإلكترونية وتقديم الكورسات التعليمية للسيو وإدارة المواقع في الإسكندرية، مصر.
             </p>
             <div className="flex space-x-4 space-x-reverse">
-              <a href="#" className="w-10 h-10 bg-holographic-gradient rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61575776472474" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-holographic-gradient rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              >
                 <Facebook className="w-5 h-5 text-black" />
               </a>
-              <a href="#" className="w-10 h-10 bg-holographic-gradient rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-                <Instagram className="w-5 h-5 text-black" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-holographic-gradient rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+              <a 
+                href="https://www.linkedin.com/in/tarikmostafa-abohagar-8b552b29b/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-holographic-gradient rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              >
                 <Linkedin className="w-5 h-5 text-black" />
               </a>
-              <a href="#" className="w-10 h-10 bg-holographic-gradient rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-                <Twitter className="w-5 h-5 text-black" />
+              <a 
+                href="https://youtube.com/@aifreedom-rf4qi?si=884Z8XHV_34MmmdX" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-holographic-gradient rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <Youtube className="w-5 h-5 text-black" />
+              </a>
+              <a 
+                href={`https://wa.me/201064412624`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <Phone className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>
@@ -64,7 +84,15 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 space-x-reverse">
                 <Phone className="w-5 h-5 text-holographic-accent" />
-                <span className="text-gray-300" dir="ltr">+20 123 456 7890</span>
+                <a 
+                  href={`https://wa.me/201064412624`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-holographic-accent transition-colors"
+                  dir="ltr"
+                >
+                  +201064412624
+                </a>
               </div>
               <div className="flex items-center space-x-3 space-x-reverse">
                 <Mail className="w-5 h-5 text-holographic-accent" />
