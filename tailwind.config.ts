@@ -128,7 +128,7 @@ export default {
 				'glow': 'glow 2s ease-in-out infinite alternate',
 				'holographic': 'holographic 3s ease infinite',
 				'rotate3d': 'rotate3d 10s linear infinite',
-				'slow-spin': 'slow-spin 4s linear infinite'
+				'slow-spin': 'slow-spin 15s linear infinite'
 			},
 			backgroundImage: {
 				'holographic-gradient': 'linear-gradient(45deg, #00f5ff, #ff00ff, #00ff88, #8b5cf6)',

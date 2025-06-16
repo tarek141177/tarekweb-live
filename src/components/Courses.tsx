@@ -1,5 +1,5 @@
 
-import { PlayCircle, Clock, Users, Award, BookOpen, Star } from 'lucide-react';
+import { PlayCircle, Users, Star, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -8,34 +8,35 @@ export const Courses = () => {
     {
       title: "كورس SEO الشامل",
       description: "تعلم تحسين محركات البحث من الصفر إلى الاحتراف",
-      duration: "40 ساعة",
       students: "1200+ طالب",
       rating: 4.9,
-      price: "499 جنيه",
       image: "🎯",
       topics: ["أساسيات SEO", "البحث عن الكلمات المفتاحية", "التحسين التقني", "بناء الروابط"]
     },
     {
       title: "إدارة مواقع الووردبريس",
       description: "دورة شاملة في إدارة وصيانة مواقع الووردبريس",
-      duration: "35 ساعة",
       students: "800+ طالب",
       rating: 4.8,
-      price: "399 جنيه",
       image: "⚙️",
       topics: ["تثبيت الووردبريس", "إدارة المحتوى", "الإضافات الأساسية", "النسخ الاحتياطية"]
     },
     {
       title: "إعلانات فيسبوك الاحترافية",
       description: "احتراف إدارة الحملات الإعلانية على فيسبوك وإنستجرام",
-      duration: "30 ساعة",
       students: "650+ طالب",
       rating: 4.7,
-      price: "449 جنيه",
       image: "📱",
       topics: ["إنشاء الحملات", "استهداف الجمهور", "تحليل النتائج", "تحسين الإعلانات"]
     }
   ];
+
+  const handleWhatsAppClick = () => {
+    const whatsappNumber = "201064412624";
+    const message = "مرحباً، أريد الاستفسار عن الكورسات";
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
 
   return (
     <section id="courses" className="py-20 relative z-10">
@@ -83,10 +84,6 @@ export const Courses = () => {
                     <Users className="w-4 h-4 mr-1" />
                     <span className="text-sm">{course.students}</span>
                   </div>
-                  <div className="flex items-center text-gray-300">
-                    <Clock className="w-4 h-4 mr-1" />
-                    <span className="text-sm">{course.duration}</span>
-                  </div>
                 </div>
               </CardHeader>
               
@@ -103,11 +100,9 @@ export const Courses = () => {
                   </ul>
                 </div>
                 
-                <div className="flex items-center justify-between pt-4 border-t border-holographic-primary/30">
-                  <div className="text-2xl font-bold holographic-text">
-                    {course.price}
-                  </div>
+                <div className="flex justify-center pt-4 border-t border-holographic-primary/30">
                   <Button 
+                    onClick={handleWhatsAppClick}
                     className="holographic-border bg-holographic-primary/20 text-white hover:bg-holographic-primary/40 transition-all duration-300"
                   >
                     <PlayCircle className="w-4 h-4 mr-2" />
@@ -124,20 +119,13 @@ export const Courses = () => {
             <h3 className="text-2xl font-bold holographic-text mb-6">
               مميزات كورساتنا
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 p-3 rounded-full bg-holographic-gradient animate-glow">
                   <BookOpen className="w-full h-full text-black" />
                 </div>
                 <h4 className="font-semibold text-white">محتوى شامل</h4>
                 <p className="text-gray-300 text-sm mt-2">مناهج مدروسة ومحدثة</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 p-3 rounded-full bg-holographic-gradient animate-glow">
-                  <Award className="w-full h-full text-black" />
-                </div>
-                <h4 className="font-semibold text-white">شهادات معتمدة</h4>
-                <p className="text-gray-300 text-sm mt-2">شهادات إنجاز معترف بها</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 p-3 rounded-full bg-holographic-gradient animate-glow">

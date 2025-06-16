@@ -1,5 +1,4 @@
-
-import { Code, Search, BarChart, Shield, BookOpen, FileText } from 'lucide-react';
+import { Code, Search, BarChart, BookOpen, FileText } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const Services = () => {
@@ -21,12 +20,6 @@ export const Services = () => {
       title: "التسويق الرقمي",
       description: "استراتيجيات تسويق متقدمة لزيادة مبيعاتك",
       features: ["إدارة المحتوى", "إعلانات مدفوعة", "تحليل البيانات", "استراتيجية التسويق"]
-    },
-    {
-      icon: Shield,
-      title: "الأمان والحماية",
-      description: "حماية موقعك من الهجمات الإلكترونية",
-      features: ["شهادات SSL", "نسخ احتياطية", "مراقبة الأمان", "حماية من الفيروسات"]
     },
     {
       icon: BookOpen,

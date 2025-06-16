@@ -1,4 +1,3 @@
-
 import { Globe, Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 export const Footer = () => {
@@ -57,8 +56,8 @@ export const Footer = () => {
               <li><a href="#services" className="text-gray-300 hover:text-holographic-primary transition-colors">تصميم المواقع الإلكترونية</a></li>
               <li><a href="#services" className="text-gray-300 hover:text-holographic-primary transition-colors">تحسين محركات البحث</a></li>
               <li><a href="#services" className="text-gray-300 hover:text-holographic-primary transition-colors">التسويق الرقمي</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-holographic-primary transition-colors">التصميم الجرافيكي</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-holographic-primary transition-colors">تطبيقات الجوال</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-holographic-primary transition-colors">إدارة المواقع</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-holographic-primary transition-colors">صناعة المحتوى</a></li>
             </ul>
           </div>
 
@@ -67,10 +66,8 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold text-holographic-secondary">كورساتنا</h4>
             <ul className="space-y-2">
               <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">كورس SEO الشامل</a></li>
-              <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">إدارة المواقع</a></li>
-              <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">التسويق الرقمي</a></li>
-              <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">تصميم UX/UI</a></li>
-              <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">برمجة React</a></li>
+              <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">إدارة مواقع الووردبريس</a></li>
+              <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">إعلانات فيسبوك</a></li>
             </ul>
           </div>
 
