@@ -103,7 +103,7 @@ export const Courses = () => {
                 <div className="flex justify-center pt-4 border-t border-holographic-primary/30">
                   <Button 
                     onClick={handleWhatsAppClick}
-                    className="holographic-border bg-holographic-primary/20 text-white hover:bg-holographic-primary/40 transition-all duration-300"
+                    className="holographic-border bg-holographic-primary/20 text-white hover:bg-holographic-primary/40 transition-all duration-300 w-full"
                   >
                     <PlayCircle className="w-4 h-4 mr-2" />
                     ابدأ الآن
