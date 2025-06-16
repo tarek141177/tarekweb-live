@@ -1,3 +1,4 @@
+
 import { Code, Search, BarChart, BookOpen, FileText } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -89,7 +90,7 @@ export const Services = () => {
             <h3 className="text-2xl font-bold holographic-text mb-4">
               لماذا تختار طارق ويب؟
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-holographic-primary">24/7</div>
                 <div className="text-gray-300">دعم فني</div>
@@ -101,10 +102,6 @@ export const Services = () => {
               <div className="text-center">
                 <div className="text-3xl font-bold text-holographic-accent">سريع</div>
                 <div className="text-gray-300">التسليم</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-holographic-purple">مميز</div>
-                <div className="text-gray-300">التصميم</div>
               </div>
             </div>
           </div>
