@@ -69,6 +69,7 @@ export const Footer = () => {
               <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">كورس SEO الشامل</a></li>
               <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">إدارة مواقع الووردبريس</a></li>
               <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">إعلانات فيسبوك</a></li>
+              <li><a href="#courses" className="text-gray-300 hover:text-holographic-secondary transition-colors">احتراف التدوين</a></li>
             </ul>
           </div>
 
@@ -98,7 +99,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 space-x-reverse">
                 <Globe className="w-5 h-5 text-holographic-accent" />
-                <span className="text-gray-300" dir="ltr">www.tariqweb.com</span>
+                <span className="text-gray-300" dir="ltr">www.tarekweb.com</span>
               </div>
             </div>
           </div>

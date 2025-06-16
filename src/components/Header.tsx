@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Globe, Code, BookOpen, Phone, User, FileText } from 'lucide-react';
+import { Menu, X, Globe, Phone, User, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -17,20 +17,6 @@ export const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      // إذا لم نكن في الصفحة الرئيسية، انتقل إليها أولاً
-      window.location.href = `/#${sectionId}`;
-      return;
-    }
-    
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -51,20 +37,6 @@ export const Header = () => {
               <Globe className="w-4 h-4" />
               <span>الرئيسية</span>
             </Link>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="flex items-center space-x-2 space-x-reverse text-white hover:text-holographic-primary transition-colors"
-            >
-              <Code className="w-4 h-4" />
-              <span>الخدمات</span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('courses')}
-              className="flex items-center space-x-2 space-x-reverse text-white hover:text-holographic-primary transition-colors"
-            >
-              <BookOpen className="w-4 h-4" />
-              <span>الكورسات</span>
-            </button>
             <Link 
               to="/about"
               className="flex items-center space-x-2 space-x-reverse text-white hover:text-holographic-primary transition-colors"
@@ -115,20 +87,6 @@ export const Header = () => {
                 <Globe className="w-4 h-4" />
                 <span>الرئيسية</span>
               </Link>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="flex items-center space-x-2 space-x-reverse text-white hover:text-holographic-primary transition-colors"
-              >
-                <Code className="w-4 h-4" />
-                <span>الخدمات</span>
-              </button>
-              <button 
-                onClick={() => scrollToSection('courses')}
-                className="flex items-center space-x-2 space-x-reverse text-white hover:text-holographic-primary transition-colors"
-              >
-                <BookOpen className="w-4 h-4" />
-                <span>الكورسات</span>
-              </button>
               <Link 
                 to="/about"
                 className="flex items-center space-x-2 space-x-reverse text-white hover:text-holographic-primary transition-colors"

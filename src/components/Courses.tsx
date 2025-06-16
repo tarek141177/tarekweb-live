@@ -28,6 +28,14 @@ export const Courses = () => {
       rating: 4.7,
       image: "📱",
       topics: ["إنشاء الحملات", "استهداف الجمهور", "تحليل النتائج", "تحسين الإعلانات"]
+    },
+    {
+      title: "احتراف التدوين",
+      description: "كورس شامل في التدوين الاحترافي وإنشاء مدونة احترافية",
+      students: "500+ طالب",
+      rating: 4.9,
+      image: "✍️",
+      topics: ["إنشاء مدونة احترافية", "كتابة المحتوى", "تحسين SEO للمقالات", "استراتيجيات التدوين"]
     }
   ];
 
@@ -58,7 +66,7 @@ export const Courses = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {courses.map((course, index) => (
             <Card 
               key={index} 
