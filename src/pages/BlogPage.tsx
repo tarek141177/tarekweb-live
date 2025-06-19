@@ -15,25 +15,29 @@ const BlogPage = () => {
         const data = await fetchEntries('blogPost');
         console.log('💡 Raw Contentful data:', data);
 
-        const mappedPosts = data.items.map((item: any) => {
-          const { title, slug, mainImage } = item.fields;
-          const author = item.fields['اسم المؤلف'];
-          const date = item.sys.updatedAt;
-          const image = mainImage?.fields?.file?.url
-            ? 'https:' + mainImage.fields.file.url
-            : '/placeholder.svg';
+        const assets = data.includes?.Asset || [];
 
-          console.log('📦 بيانات الصورة:', image);
+const mappedPosts = data.items.map((item: any) => {
+  const { title, slug } = item.fields;
+  const imageId = item.fields.mainImage?.sys?.id;
+  const asset = assets.find((a: any) => a.sys.id === imageId);
+  const image = asset?.fields?.file?.url
+    ? 'https:' + asset.fields.file.url
+    : '/placeholder.svg';
 
-          return {
-            id: item.sys.id,
-            title,
-            slug,
-            author,
-            date,
-            image,
-          };
-        });
+  const author = item.fields['اسم المؤلف'];
+  const date = item.sys.updatedAt;
+
+  return {
+    id: item.sys.id,
+    title,
+    slug,
+    author,
+    date,
+    image,
+  };
+});
+
 
         console.log('✅ Mapped Posts:', mappedPosts);
         setPosts(mappedPosts);
