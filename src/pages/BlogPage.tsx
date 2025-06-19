@@ -17,7 +17,7 @@ const BlogPage = () => {
 
         const mappedPosts = data.items.map((item: any) => {
 const { title, slug } = item.fields;
-const image = item.fields["Main Image"];
+const image = item.fields.mainImage;
           const author = item.fields['اسم المؤلف'];
           const date = item.sys.updatedAt;
 console.log('📦 بيانات الصورة:', image);
