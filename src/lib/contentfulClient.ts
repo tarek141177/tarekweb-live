@@ -6,7 +6,7 @@ const accessToken = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
 const BASE_URL = `https://cdn.contentful.com/spaces/${space}/environments/master`;
 
 export async function fetchEntries(contentType: string) {
-  const url = `${BASE_URL}/entries?content_type=${contentType}&access_token=${accessToken}&include=1`;
+const url = `${BASE_URL}/entries?content_type=${contentType}&access_token=${accessToken}&include=10`;
 
   const response = await fetch(url);
 
