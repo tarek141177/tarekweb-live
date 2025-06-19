@@ -19,7 +19,7 @@ const BlogPage = () => {
             id: item.sys.id,
             title,
             slug,
-            author: author?.fields?.name || 'بدون اسم',
+author,
             date: item.sys.updatedAt,
             image: image?.fields?.file?.url ? 'https:' + image.fields.file.url : '/placeholder.svg',
           };
