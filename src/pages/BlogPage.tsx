@@ -14,14 +14,18 @@ const BlogPage = () => {
       try {
         const data = await fetchEntries('blogPost');
         const mappedPosts = data.items.map((item: any) => {
-          const mappedPosts = data.items.map((item: any) => {
-  const { title, slug, image, ['اسم المؤلف']: author } = item.fields;
+  const title = item.fields.title;
+  const slug = item.fields.slug;
+  const image = item.fields.image;
+  const author = item.fields['اسم المؤلف']; // نص المؤلف
+  const date = item.sys.updatedAt;
+
   return {
     id: item.sys.id,
     title,
     slug,
     author,
-    date: item.sys.updatedAt,
+    date,
     image: image?.fields?.file?.url ? 'https:' + image.fields.file.url : '/placeholder.svg',
   };
 });
