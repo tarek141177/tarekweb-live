@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer';
 import { HolographicBackground } from '@/components/HolographicBackground';
 import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -15,10 +16,24 @@ const ContactPage = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsLoading(true);
+    
+    try {
+      // Here you would integrate with EmailJS or another email service
+      // For now, we'll simulate the email sending
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Form submitted:', formData);
+      // Reset form after successful submission
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -26,6 +41,10 @@ const ContactPage = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleSubjectChange = (value: string) => {
+    setFormData({ ...formData, subject: value });
   };
 
   return (
@@ -158,15 +177,19 @@ const ContactPage = () => {
                   
                   <div>
                     <label className="block text-white font-semibold mb-2">الموضوع</label>
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-black/50 border border-holographic-primary/30 rounded-lg text-white focus:outline-none focus:border-holographic-primary transition-colors"
-                      placeholder="موضوع الرسالة"
-                    />
+                    <Select value={formData.subject} onValueChange={handleSubjectChange}>
+                      <SelectTrigger className="w-full px-4 py-3 bg-black/50 border border-holographic-primary/30 rounded-lg text-white focus:outline-none focus:border-holographic-primary transition-colors">
+                        <SelectValue placeholder="موضوع الرسالة" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-black border-holographic-primary/30">
+                        <SelectItem value="website" className="text-white hover:bg-holographic-primary/20">تصميم موقع إلكتروني</SelectItem>
+                        <SelectItem value="seo" className="text-white hover:bg-holographic-primary/20">تحسين محركات البحث</SelectItem>
+                        <SelectItem value="marketing" className="text-white hover:bg-holographic-primary/20">التسويق الرقمي</SelectItem>
+                        <SelectItem value="course" className="text-white hover:bg-holographic-primary/20">الكورسات التعليمية</SelectItem>
+                        <SelectItem value="consultation" className="text-white hover:bg-holographic-primary/20">استشارة مجانية</SelectItem>
+                        <SelectItem value="other" className="text-white hover:bg-holographic-primary/20">أخرى</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 
@@ -185,10 +208,11 @@ const ContactPage = () => {
 
                 <Button
                   type="submit"
+                  disabled={isLoading}
                   className="w-full holographic-border bg-transparent text-white hover:bg-holographic-primary/20 transition-all duration-300 py-3"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  إرسال الرسالة
+                  {isLoading ? 'جاري الإرسال...' : 'إرسال الرسالة'}
                 </Button>
               </form>
             </div>

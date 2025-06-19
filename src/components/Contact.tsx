@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 
 export const Contact = () => {
@@ -16,15 +17,32 @@ export const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // هنا يمكن إضافة منطق إرسال الرسالة
-    toast.success('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    setIsLoading(true);
+
+    try {
+      // Here you would integrate with EmailJS or another email service
+      // For now, we'll simulate the email sending
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast.success('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (error) {
+      toast.error('حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleServiceChange = (value: string) => {
+    setFormData({ ...formData, service: value });
   };
 
   return (
@@ -180,19 +198,18 @@ export const Contact = () => {
                     <label className="block text-sm font-medium text-gray-300 mb-2">
                       الخدمة المطلوبة
                     </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full glass-effect border-holographic-primary/30 text-white bg-transparent rounded-md px-3 py-2"
-                    >
-                      <option value="">اختر الخدمة</option>
-                      <option value="website">تصميم موقع إلكتروني</option>
-                      <option value="seo">تحسين محركات البحث</option>
-                      <option value="marketing">التسويق الرقمي</option>
-                      <option value="course">الكورسات التعليمية</option>
-                      <option value="other">أخرى</option>
-                    </select>
+                    <Select value={formData.service} onValueChange={handleServiceChange}>
+                      <SelectTrigger className="glass-effect border-holographic-primary/30 text-white bg-black/50">
+                        <SelectValue placeholder="اختر الخدمة" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-black border-holographic-primary/30">
+                        <SelectItem value="website" className="text-white hover:bg-holographic-primary/20">تصميم موقع إلكتروني</SelectItem>
+                        <SelectItem value="seo" className="text-white hover:bg-holographic-primary/20">تحسين محركات البحث</SelectItem>
+                        <SelectItem value="marketing" className="text-white hover:bg-holographic-primary/20">التسويق الرقمي</SelectItem>
+                        <SelectItem value="course" className="text-white hover:bg-holographic-primary/20">الكورسات التعليمية</SelectItem>
+                        <SelectItem value="other" className="text-white hover:bg-holographic-primary/20">أخرى</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 
@@ -212,10 +229,11 @@ export const Contact = () => {
 
                 <Button
                   type="submit"
+                  disabled={isLoading}
                   className="w-full holographic-border bg-holographic-primary/20 text-white hover:bg-holographic-primary/40 transition-all duration-300 hover:scale-105"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  إرسال الرسالة
+                  {isLoading ? 'جاري الإرسال...' : 'إرسال الرسالة'}
                 </Button>
               </form>
             </CardContent>
