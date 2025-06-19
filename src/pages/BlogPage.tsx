@@ -16,7 +16,8 @@ const BlogPage = () => {
         console.log('💡 Raw Contentful data:', data);
 
         const mappedPosts = data.items.map((item: any) => {
-          const { title, slug, image } = item.fields;
+const { title, slug } = item.fields;
+const image = item.fields["Main Image"];
           const author = item.fields['اسم المؤلف'];
           const date = item.sys.updatedAt;
 console.log('📦 بيانات الصورة:', image);
