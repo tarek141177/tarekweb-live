@@ -1,10 +1,10 @@
 
 import emailjs from '@emailjs/browser';
 
-// EmailJS configuration - these should be replaced with actual values
-const SERVICE_ID = 'your_service_id';
-const TEMPLATE_ID = 'your_template_id';
-const PUBLIC_KEY = 'your_public_key';
+// EmailJS configuration
+const SERVICE_ID = 'service_z67lcuy';
+const TEMPLATE_ID = 'template_575tyzh';
+const PUBLIC_KEY = 'your_public_key'; // You'll need to replace this with your actual public key
 
 export interface EmailData {
   name: string;
