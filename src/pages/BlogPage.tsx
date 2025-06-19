@@ -14,16 +14,18 @@ const BlogPage = () => {
       try {
         const data = await fetchEntries('blogPost');
         const mappedPosts = data.items.map((item: any) => {
-          const { title, slug, image, author } = item.fields;
-          return {
-            id: item.sys.id,
-            title,
-            slug,
-author,
-            date: item.sys.updatedAt,
-            image: image?.fields?.file?.url ? 'https:' + image.fields.file.url : '/placeholder.svg',
-          };
-        });
+          const mappedPosts = data.items.map((item: any) => {
+  const { title, slug, image, ['اسم المؤلف']: author } = item.fields;
+  return {
+    id: item.sys.id,
+    title,
+    slug,
+    author,
+    date: item.sys.updatedAt,
+    image: image?.fields?.file?.url ? 'https:' + image.fields.file.url : '/placeholder.svg',
+  };
+});
+
         setPosts(mappedPosts);
       } catch (error) {
         console.error('خطأ في جلب المقالات:', error);
