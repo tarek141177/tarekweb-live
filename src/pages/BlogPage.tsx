@@ -16,18 +16,22 @@ const BlogPage = () => {
         console.log('💡 Raw Contentful data:', data);
 
         const mappedPosts = data.items.map((item: any) => {
-const { title, slug } = item.fields;
-const image = item.fields.mainImage;
+          const { title, slug, mainImage } = item.fields;
           const author = item.fields['اسم المؤلف'];
           const date = item.sys.updatedAt;
-console.log('📦 بيانات الصورة:', image);
+          const image = mainImage?.fields?.file?.url
+            ? 'https:' + mainImage.fields.file.url
+            : '/placeholder.svg';
+
+          console.log('📦 بيانات الصورة:', image);
+
           return {
             id: item.sys.id,
             title,
             slug,
             author,
             date,
-            image: image?.fields?.file?.url ? 'https:' + image.fields.file.url : '/placeholder.svg',
+            image,
           };
         });
 
