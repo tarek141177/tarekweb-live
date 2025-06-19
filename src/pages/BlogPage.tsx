@@ -19,7 +19,7 @@ const BlogPage = () => {
           const { title, slug, image } = item.fields;
           const author = item.fields['اسم المؤلف'];
           const date = item.sys.updatedAt;
-
+console.log('📦 بيانات الصورة:', image);
           return {
             id: item.sys.id,
             title,
