@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: 'all', // ✅ السماح لأي رابط بالدخول (مهم لـ Gitpod)
   },
   plugins: [
     react(),
