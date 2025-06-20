@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { fetchEntries } from '@/lib/contentfulClient';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { HolographicBackground } from '@/components/HolographicBackground';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { fetchEntries } from "@/lib/contentfulClient";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { HolographicBackground } from "@/components/HolographicBackground";
 
 const BlogPostPage = () => {
   const { slug } = useParams();
@@ -12,39 +12,33 @@ const BlogPostPage = () => {
   useEffect(() => {
     async function getPost() {
       try {
-        const data = await fetchEntries('blogPost');
-        const matched = data.items.find(
-          (item: any) => item.fields.slug === slug
-        );
-
+        const data = await fetchEntries("blogPost");
+        const matched = data.items.find((item: any) => item.fields.slug === slug);
         if (matched) {
-          const { title, content, image } = matched.fields;
-          const author = matched.fields['اسم المؤلف'];
-          const date = matched.sys.updatedAt;
-          const imageUrl = image?.fields?.file?.url
-            ? 'https:' + image.fields.file.url
-            : '/placeholder.svg';
-
+          const image = matched.fields["Main Image"];
           setPost({
-            title,
-            content,
-            image: imageUrl,
-            author,
-            date,
+            title: matched.fields.title,
+            content: matched.fields.Content,
+            author: matched.fields["اسم المؤلف"],
+            image: image?.fields?.file?.url ? "https:" + image.fields.file.url : null,
+            date: matched.sys.updatedAt,
           });
         }
-      } catch (err) {
-        console.error('❌ خطأ في تحميل المقال:', err);
+      } catch (error) {
+        console.error("❌ خطأ في تحميل المقال:", error);
       }
     }
-
     getPost();
   }, [slug]);
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-black text-white font-cairo flex items-center justify-center">
-        <p>جارٍ تحميل المقال...</p>
+      <div className="min-h-screen bg-black text-white font-cairo">
+        <Header />
+        <main className="pt-40 text-center">
+          <h2 className="text-3xl">جاري تحميل المقال...</h2>
+        </main>
+        <Footer />
       </div>
     );
   }
@@ -55,23 +49,18 @@ const BlogPostPage = () => {
       <Header />
 
       <main className="pt-32 pb-20 container mx-auto px-4">
-        <article className="max-w-3xl mx-auto bg-black rounded-xl p-6">
+        <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
+        <p className="text-sm text-gray-400 mb-4">بواسطة {post.author} - {new Date(post.date).toLocaleDateString("ar-EG")}</p>
+        {post.image && (
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-64 object-cover rounded-xl mb-6"
+            className="w-full max-h-[400px] object-cover rounded-lg mb-8"
           />
-
-          <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-          <p className="text-sm text-gray-400 mb-6">
-            ✍️ {post.author} – 🗓️{' '}
-            {new Date(post.date).toLocaleDateString('ar-EG')}
-          </p>
-
-          <div className="text-lg leading-loose whitespace-pre-line">
-            {post.content}
-          </div>
-        </article>
+        )}
+        <div className="prose prose-invert max-w-4xl mx-auto leading-loose text-lg whitespace-pre-wrap">
+          {post.content}
+        </div>
       </main>
 
       <Footer />
