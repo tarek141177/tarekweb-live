@@ -14,21 +14,31 @@ const BlogPostPage = () => {
     async function getPost() {
       try {
         const data = await fetchEntries("blogPost");
-        const matched = data.items.find((item: any) => item.fields.slug === slug);
+        const matched = data.items.find(
+          (item: any) => item.fields.slug === slug
+        );
+
         if (matched) {
           const image = matched.fields["Main Image"];
+          const content = matched.fields.Content;
+
           setPost({
             title: matched.fields.title,
-            content: matched.fields.Content,
+            content: content,
             author: matched.fields["اسم المؤلف"],
-            image: image?.fields?.file?.url ? "https:" + image.fields.file.url : null,
+            image: image?.fields?.file?.url
+              ? "https:" + image.fields.file.url
+              : null,
             date: matched.sys.updatedAt,
           });
+        } else {
+          console.warn("❗ لم يتم العثور على مقال بهذا الرابط:", slug);
         }
       } catch (error) {
         console.error("❌ خطأ في تحميل المقال:", error);
       }
     }
+
     getPost();
   }, [slug]);
 
@@ -52,7 +62,8 @@ const BlogPostPage = () => {
       <main className="pt-32 pb-20 container mx-auto px-4">
         <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
         <p className="text-sm text-gray-400 mb-4">
-          بواسطة {post.author} - {new Date(post.date).toLocaleDateString("ar-EG")}
+          بواسطة {post.author} -{" "}
+          {new Date(post.date).toLocaleDateString("ar-EG")}
         </p>
 
         {post.image && (
