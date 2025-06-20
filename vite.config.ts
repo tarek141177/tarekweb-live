@@ -8,9 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: true,
     port: 8080,
     allowedHosts: [
-      // 👇 اكتب هنا الدومين اللي ظهرلك من Gitpod بالكامل
       "8080-tarek141177-tariksholog-rf35jejuytv.ws-eu120.gitpod.io",
-      "8081-tarek141177-tariksholog-rf35jejuytv.ws-eu120.gitpod.io",
     ],
   },
   plugins: [
