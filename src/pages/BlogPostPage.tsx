@@ -75,8 +75,11 @@ const BlogPostPage = () => {
         )}
 
         <div className="prose prose-invert max-w-4xl mx-auto leading-loose text-lg">
-          {documentToReactComponents(post.content)}
-        </div>
+  {post.content
+    ? documentToReactComponents(post.content)
+    : <p className="text-gray-400 text-center">لا يوجد محتوى متاح لهذا المقال.</p>}
+</div>
+
       </main>
 
       <Footer />
