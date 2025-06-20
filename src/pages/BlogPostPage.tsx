@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { fetchEntries } from "@/lib/contentfulClient";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -58,8 +59,8 @@ const BlogPostPage = () => {
             className="w-full max-h-[400px] object-cover rounded-lg mb-8"
           />
         )}
-        <div className="prose prose-invert max-w-4xl mx-auto leading-loose text-lg whitespace-pre-wrap">
-          {post.content}
+        <div className="prose prose-invert max-w-4xl mx-auto leading-loose text-lg">
+          {documentToReactComponents(post.content)}
         </div>
       </main>
 
@@ -69,3 +70,4 @@ const BlogPostPage = () => {
 };
 
 export default BlogPostPage;
+
