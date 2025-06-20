@@ -3,17 +3,19 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: true,
     port: 8080,
-    allowedHosts: 'all', // ✅ السماح لأي رابط بالدخول (مهم لـ Gitpod)
+    allowedHosts: [
+      // 👇 اكتب هنا الدومين اللي ظهرلك من Gitpod بالكامل
+      "8080-tarek141177-tariksholog-rf35jejuytv.ws-eu120.gitpod.io",
+      "8081-tarek141177-tariksholog-rf35jejuytv.ws-eu120.gitpod.io",
+    ],
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
