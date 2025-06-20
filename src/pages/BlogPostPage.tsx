@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { fetchEntries } from "@/lib/contentfulClient";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HolographicBackground } from "@/components/HolographicBackground";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const BlogPostPage = () => {
   const { slug } = useParams();
@@ -51,7 +51,10 @@ const BlogPostPage = () => {
 
       <main className="pt-32 pb-20 container mx-auto px-4">
         <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
-        <p className="text-sm text-gray-400 mb-4">بواسطة {post.author} - {new Date(post.date).toLocaleDateString("ar-EG")}</p>
+        <p className="text-sm text-gray-400 mb-4">
+          بواسطة {post.author} - {new Date(post.date).toLocaleDateString("ar-EG")}
+        </p>
+
         {post.image && (
           <img
             src={post.image}
@@ -59,6 +62,7 @@ const BlogPostPage = () => {
             className="w-full max-h-[400px] object-cover rounded-lg mb-8"
           />
         )}
+
         <div className="prose prose-invert max-w-4xl mx-auto leading-loose text-lg">
           {documentToReactComponents(post.content)}
         </div>
@@ -70,4 +74,5 @@ const BlogPostPage = () => {
 };
 
 export default BlogPostPage;
+
 
