@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// اسم المضيف المسموح به من Gitpod
 const gitpodHost = process.env.GITPOD_WORKSPACE_URL?.replace("https://", "").split("/")[0];
 
 export default defineConfig(({ mode }) => ({
