@@ -21,4 +21,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      external: ["@contentful/rich-text-react-renderer"],
+    },
+  },
 }));
+
